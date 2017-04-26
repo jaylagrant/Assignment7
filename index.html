@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <style>
+
+        .highlight {
+            background-color: cyan;
+            font-weight: bold;
+        }
+        #myDiv p {
+            margin: 15px;
+            font-size: 0.917em;
+        }
+        #ollist{
+            display:none;
+        }
+
+    </style>
+
+    <script>
+
+        $(document).ready(function(){
+            $("#hide").click(function(){
+                $("p").slideToggle();
+                $("ollist").hide();
+            });
+        });
+
+        function openList1() {
+            var list = document.getElementById("ollist");
+
+            if (list.style.display == "none"){
+                list.style.display = "block";
+            }else{
+                list.style.display = "none";
+            }
+            var classHighlight = 'highlight';
+            var $thumbs = $('.thumbnail').click(function(e) {
+                e.preventDefault();
+                $thumbs.removeClass(classHighlight);
+                $(this).addClass(classHighlight);
+            });
+
+        }
+
+
+    </script>
+</head>
+<body>
+<!--button to hide or show paragraphs-->
+<button id="hide">Hide paragraphs</button><br/>
+<div id="mydiv">
+    <h3>Spelman is the #1 HBCU, why?</h3>
+    <h2>Because...</h2>
+    <p>Full of black/miniority women who are powerful</p>
+    <p>Great Faculty & Staff</p>
+
+    <h3>Why is CS a good major?</h3>
+    <p>It's not my major. Math is the best.</p><br/>
+</div>
+
+<!--on clicking this button ordered list will be displayed-->
+<button id = "list1" onclick = "openList1()">Next>></button>
+
+<ol id="ollist">
+    <li><a href="#" class="thumbnail">
+        <span class="gifttitle">NSO</span>
+    </a> </li>
+    <li><a href="#" class="thumbnail">
+        <span class="gifttitle">Founder's Day</span>
+    </a> </li>
+
+    <li><a href="#" class="thumbnail">
+        <span class="gifttitle">Brother Sister Exhange</span>
+    </a> </li>
+
+</ol>
+
+</body>
+</html>
